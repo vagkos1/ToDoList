@@ -1,0 +1,59 @@
+/******************************
+Flexbox Layout
+*******************************/
+
+.header, .footer {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.header {
+    justify-content: space-between;
+}
+
+.main-content {
+    min-height: 600px;
+}
+
+.footer {
+    justify-content: center;
+}
+
+/******************************
+Top Nav General Styling
+*******************************/
+
+body {
+    margin: 0;
+    color: #3a3a3a;
+}
+
+.header {
+    padding: 10px 0;
+    margin: 0 auto;
+    background-color: darkcyan;
+}
+
+.logo-icon {
+    height: 50px;
+    width: auto;
+    margin-top: 12px;
+}
+
+/******************************
+FOOTER Styling
+*******************************/
+
+.footer {
+    padding: 20px;
+    background: goldenrod;
+    font-size: 1.3em;
+}
+
+.footer-text {
+    color: #3a3a3a;
+}
+
+.footer-text > a {
+    color: #3a3a3a;
+}
