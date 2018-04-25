@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
@@ -47,6 +48,12 @@ class ToDo
      * @ORM\Column(type="string")
      */
     private $category;
+
+    /**
+     * @Gedmo\Slug(fields={"description"})
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $slug;
 
     public function getId(): int
     {
@@ -111,5 +118,15 @@ class ToDo
     public function setCategory($category): void
     {
         $this->category = $category;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
     }
 }
