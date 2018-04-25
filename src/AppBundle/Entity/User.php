@@ -62,7 +62,7 @@ class User implements UserInterface
     private $lastName;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Todo", mappedBy="createdBy")
+     * @ORM\OneToMany(targetEntity="ToDo", mappedBy="createdBy")
      */
     private $todosCreated;
 
@@ -169,13 +169,13 @@ class User implements UserInterface
     }
 
     /**
-     * @return ArrayCollection|Todo[]
+     * @return ArrayCollection|ToDo[]
      */
     public function getTodosCreated()
     {
         return $this->todosCreated;
     }
-    public function addTodo(Todo $todo)
+    public function addTodo(ToDo $todo)
     {
         // technically it's an arrayCollection but we can treat it as an array
         $this->todosCreated[] = $todo;
