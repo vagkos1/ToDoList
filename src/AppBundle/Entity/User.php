@@ -175,9 +175,15 @@ class User implements UserInterface
     {
         return $this->todosCreated;
     }
+
     public function addTodo(ToDo $todo)
     {
         // technically it's an arrayCollection but we can treat it as an array
         $this->todosCreated[] = $todo;
+    }
+
+    public function __toString(): string
+    {
+        return $this->firstName . " " . $this->lastName;
     }
 }
