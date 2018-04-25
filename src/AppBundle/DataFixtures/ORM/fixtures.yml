@@ -1,0 +1,17 @@
+AppBundle\Entity\Todo:
+    todo_{1..10}:
+        description: <task()>
+        createdBy: '@user_*'
+        createdAt: <dateTimeBetween('-10 days', 'now')>
+        dueDate: <dateTimeBetween('now', '+ 10 days')>
+        priority: <numberBetween(1, 4)>
+        category: <category()>
+
+AppBundle\Entity\User:
+    user_{1..10}:
+        email: kostopoulos.e+<current()>@gmail.com
+        plainPassword: todolist?surely
+        roles: ['ROLE_ADMIN']
+        plainPassword: todolist?surely
+        firstName: <firstName()>
+        lastName: <lastName()>
