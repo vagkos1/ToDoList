@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Todo {{ todo.description }}
+{% endblock %}
+
+{% block body %}
+
+    <h2 class="">{{ todo.description }}</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="label label-default">Category</span>
+            {{ todo.category }}
+        </li>
+        <li class="list-group-item">
+            <span class="label label-default">Created At</span>
+            {{ todo.createdAt | date('Y-m-d') }}
+        </li>
+        <li class="list-group-item">
+            <span class="label label-default">Due Date</span>
+            {{ todo.dueDate | date('Y-m-d') }}
+        </li>
+        <li class="list-group-item">
+            <span class="label label-default">Created By</span>
+            {{ todo.createdBy }}
+        </li>
+    </ul>
+{% endblock %}

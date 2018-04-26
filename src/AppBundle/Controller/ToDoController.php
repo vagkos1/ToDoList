@@ -24,4 +24,14 @@ class ToDoController extends Controller
             'todos' => $todos
         ]);
     }
+
+    /**
+     * @Route("/todo/{slug}", name="todo_show")
+     */
+    public function showAction(ToDo $todo): Response
+    {
+        return $this->render('todo/show.html.twig', [
+            'todo' => $todo,
+        ]);
+    }
 }
