@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-
 use AppBundle\Entity\ToDo;
 use Doctrine\ORM\EntityRepository;
 

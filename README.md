@@ -20,6 +20,12 @@ To run them:
 
 - ./vendor/bin/phpunit
 
+### Standards
+
+The app follows PSR2
+
+- vendor/bin/phpcs --standard=PSR2 src tests
+
 ### Possible Future Features
 
 - Login/Logout and user roles

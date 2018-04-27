@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\ToDo;
 use AppBundle\Form\TodoForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

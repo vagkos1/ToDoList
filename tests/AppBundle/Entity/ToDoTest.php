@@ -2,7 +2,6 @@
 
 namespace Tests\AppBundle\Entity;
 
-
 use AppBundle\Entity\ToDo;
 use AppBundle\Exception\NotDoneUntilItsDoneException;
 use PHPUnit\Framework\TestCase;
