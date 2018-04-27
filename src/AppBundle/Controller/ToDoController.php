@@ -57,6 +57,35 @@ class ToDoController extends Controller
     }
 
     /**
+     * @Route("/todo/{id}/edit", name="todo_edit")
+     */
+    public function editAction(Request $request, ToDo $todo)
+    {
+        $form = $this->createForm(TodoForm::class, $todo);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $todo = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($todo);
+            $em->flush();
+
+            $this->addFlash(
+                'success',
+                'Todo updated - well done!'
+            );
+
+            return $this->redirectToRoute('todo_list');
+        }
+
+        return $this->render('todo/edit.html.twig', [
+            'todoForm' => $form->createView()
+        ]);
+    }
+
+    /**
      * @Route("/todo/{slug}", name="todo_show")
      */
     public function showAction(ToDo $todo): Response
