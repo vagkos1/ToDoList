@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Exception\NotDoneUntilItsDoneException;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,12 +22,16 @@ class ToDo
     private $id;
 
     /**
+     * @var \DateTime
+     *
      * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
+     * @var \DateTime
+     *
      * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
@@ -77,7 +82,7 @@ class ToDo
         return $this->createdAt;
     }
 
-    public function setCreatedAt($createdAt): void
+    public function setCreatedAt(\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -87,8 +92,14 @@ class ToDo
         return $this->dueDate;
     }
 
-    public function setDueDate($dueDate): void
+    /**
+     * @throws NotDoneUntilItsDoneException
+     */
+    public function setDueDate(\DateTime $dueDate): void
     {
+        if ($dueDate < $this->createdAt) {
+            throw new NotDoneUntilItsDoneException();
+        }
         $this->dueDate = $dueDate;
     }
 

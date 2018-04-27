@@ -12,3 +12,15 @@ A Symfony 3.4 project
 - php bin/console doctrine:fixtures:load
 
 Lastly, browse to /todo
+
+### Unit tests
+
+There are no services in this project yet, so the unit tests are very limited.
+To run them:
+
+- ./vendor/bin/phpunit
+
+### Possible Future Features
+
+- Login/Logout and user roles
+- ToDo lists
