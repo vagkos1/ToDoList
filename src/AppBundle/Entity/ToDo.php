@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -20,31 +21,37 @@ class ToDo
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
     private $dueDate;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="integer")
      */
     private $priority;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $description;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="todosCreated")
      */
     private $createdBy;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $category;
@@ -55,7 +62,7 @@ class ToDo
      */
     private $slug;
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -65,7 +72,7 @@ class ToDo
         $this->id = $id;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -75,7 +82,7 @@ class ToDo
         $this->createdAt = $createdAt;
     }
 
-    public function getDueDate(): \DateTime
+    public function getDueDate()
     {
         return $this->dueDate;
     }
@@ -85,7 +92,7 @@ class ToDo
         $this->dueDate = $dueDate;
     }
 
-    public function getPriority(): int
+    public function getPriority()
     {
         return $this->priority;
     }
@@ -95,7 +102,7 @@ class ToDo
         $this->priority = $priority;
     }
 
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -105,12 +112,12 @@ class ToDo
         $this->description = $description;
     }
 
-    public function getCreatedBy(): User
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->category;
     }
@@ -120,7 +127,7 @@ class ToDo
         $this->category = $category;
     }
 
-    public function getSlug(): string
+    public function getSlug()
     {
         return $this->slug;
     }
@@ -128,5 +135,10 @@ class ToDo
     public function setSlug($slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function setCreatedBy($createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 }
