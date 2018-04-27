@@ -1,7 +1,7 @@
 ToDo List
 ====
 
-A Symfony 3 project
+A Symfony 3.4 project
 
 ### Run
 
@@ -10,3 +10,5 @@ A Symfony 3 project
 - php bin/console doctrine:database:create
 - php bin/console doctrine:migrations:migrate
 - php bin/console doctrine:fixtures:load
+
+Lastly, browse to /todo
