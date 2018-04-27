@@ -43,6 +43,11 @@ class ToDoController extends Controller
             $em->persist($todo);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Todo created - well done!'
+            );
+
             return $this->redirectToRoute('todo_list');
         }
 
