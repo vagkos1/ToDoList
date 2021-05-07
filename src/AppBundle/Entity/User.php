@@ -90,6 +90,7 @@ class User implements UserInterface
     }
 
     // not necessary since we'll use bcrypt, which comes with a built in mechanism to salt passwords.
+    // Fine! I'll keep this comment in.
     public function getSalt()
     {
     }
