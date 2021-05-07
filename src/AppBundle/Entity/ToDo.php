@@ -91,9 +91,6 @@ class ToDo
         return $this->dueDate;
     }
 
-    /**
-     * @throws NotDoneUntilItsDoneException
-     */
     public function setDueDate(\DateTime $dueDate): void
     {
         if ($dueDate < $this->createdAt) {

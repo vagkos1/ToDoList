@@ -40,7 +40,6 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * The roles property will hold an array of roles.
      * When we save, Doctrine will automatically json_encode that array and store it in a singe field.
      * When we query, it will json_decode that back to the array.
      * Every user must have at least one role.
@@ -91,6 +90,7 @@ class User implements UserInterface
     }
 
     // not necessary since we'll use bcrypt, which comes with a built in mechanism to salt passwords.
+    // Fine! I'll keep this comment in.
     public function getSalt()
     {
     }
